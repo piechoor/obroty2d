@@ -147,18 +147,12 @@ int main()
 //   cin.ignore(100000,'\n');
 
 
-       Wektor2D A, B(2,4), C(-5,-6), D, E;
-       cout << "Wektor A: " << A << endl;
-       cout << "Wektor B: " << B << endl;
-       // cout << "Wektor C: " << C << endl;
-       // D = A + B;
-       // cout << "Wektor D = A + B: " << D << endl;
-       // E = B - D;
-       // cout << "Wektor E = B - D: " << E << endl;
-       
-       Macierz2x2 M(11,22,33,44);
-       cout << "Macierz M: " << endl << M << endl;
+       Wektor2D A(2,3), B(12,3), C(12,8), D(2,8);
 
-       A = M * C;
-       cout << "A = M * C: " << A << endl;
+       Prostokat P(A, B, C ,D);
+       cout << P;
+
+       P.Obroc(3600000, 1);
+
+       cout << P;
 }

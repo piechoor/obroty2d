@@ -3,6 +3,7 @@
 
 
 #include <iostream>
+#include <cmath>
 #include "Wektor2D.hh"
 
 /*
@@ -12,7 +13,7 @@
 class Macierz2x2 {
 
     double Elem[4];
-    double Kat_obr;
+    float Kat_obr;
     
   public:
   
@@ -20,7 +21,7 @@ class Macierz2x2 {
 
     Macierz2x2(double a11, double a12, double a21, double a22);
 
-    Macierz2x2(double a11, double a12, double a21, double a22, double Kat);
+    Macierz2x2(float Kat);
 
     const double& operator [] (int indeks) const;
 

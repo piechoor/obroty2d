@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Wektor2D.hh"
+#include "Macierz2x2.hh"
 
 /*
  *  Tutaj trzeba opisac klase. Jakie pojecie modeluje ta klasa
@@ -13,6 +14,13 @@ class Prostokat {
     Wektor2D Wierzch[4];
   
   public:
+
+    Prostokat(Wektor2D W1, Wektor2D W2, Wektor2D W3, Wektor2D W4) {
+      Wierzch[0] = W1; Wierzch[1] = W2; Wierzch[2] = W3; Wierzch[3] = W4; };
+
+    const Wektor2D& operator [] (int indeks) const;
+
+    void Obroc(long L_obr, float Kat);
   
 };
 
@@ -24,9 +32,7 @@ class Prostokat {
  * znalezc w pliku:
  *    ~bk/edu/kpo/zalecenia.txt 
  */
-std::ostream& operator << ( std::ostream       &Strm, 
-                            const Prostokat    &Pr
-                          );
+std::ostream& operator << ( std::ostream &Strm, const Prostokat &Pr);
 
 
 #endif

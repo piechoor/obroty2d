@@ -2,15 +2,16 @@
 
 using namespace std;
 
-Macierz2x2::Macierz2x2(double a11, double a12, double a21, double a22, double Kat) {
-    Elem[0] = a11; Elem[1] = a12;
-    Elem[2] = a21; Elem[3] = a22;
-    Kat = 0;
+Macierz2x2::Macierz2x2(float Kat) {
+    Kat_obr = Kat*M_PI/180;
+    Elem[0] = cos(Kat_obr); Elem[1] = -sin(Kat_obr);
+    Elem[2] = sin(Kat_obr); Elem[3] = cos(Kat_obr);
 }
 
 Macierz2x2::Macierz2x2(double a11, double a12, double a21, double a22) {
     Elem[0] = a11; Elem[1] = a12;
     Elem[2] = a21; Elem[3] = a22;
+    Kat_obr = 0;
 }
 
 ostream& operator << (ostream &Strm, const Macierz2x2 &Mac) {
