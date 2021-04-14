@@ -2,7 +2,8 @@
 #define WEKTOR2D_HH
 
 #include <iostream>
-
+#include <iomanip>
+#include <cmath>
 
 /*
  *  Tutaj trzeba opisac klase. Jakie pojecie modeluje ta klasa
@@ -17,6 +18,8 @@ class Wektor2D {
     Wektor2D() { Wsp[0] = 0; Wsp[1] = 0; }
 
     Wektor2D(double Wsp_x, double Wsp_y) { this->Wsp[0] = Wsp_x;  this->Wsp[1] = Wsp_y; }
+
+    double Modul(const Wektor2D &Wek) const;
 
     const double& operator [] (int indeks) const;
 

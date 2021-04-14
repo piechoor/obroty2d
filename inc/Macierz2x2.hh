@@ -13,7 +13,7 @@
 class Macierz2x2 {
 
     double Elem[4];
-    float Kat_obr;
+    double Kat_obr;
     
   public:
   
@@ -21,7 +21,7 @@ class Macierz2x2 {
 
     Macierz2x2(double a11, double a12, double a21, double a22);
 
-    Macierz2x2(float Kat);
+    Macierz2x2(double Kat);
 
     const double& operator [] (int indeks) const;
 

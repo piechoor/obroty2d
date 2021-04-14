@@ -20,8 +20,9 @@ class Prostokat {
 
     const Wektor2D& operator [] (int indeks) const;
 
-    void Obroc(long L_obr, float Kat);
-  
+    void Obroc(long L_obr, double Kat);
+
+    void Spr_boki(); 
 };
 
 

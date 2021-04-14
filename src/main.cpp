@@ -152,7 +152,9 @@ int main()
        Prostokat P(A, B, C ,D);
        cout << P;
 
-       P.Obroc(3600000, 1);
+       P.Spr_boki();
+       P.Obroc(36000000, 1);
+       P.Spr_boki();
 
        cout << P;
 }

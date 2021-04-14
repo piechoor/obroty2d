@@ -3,6 +3,12 @@
 using namespace std;
 
 
+double Wektor2D::Modul(const Wektor2D &Wek) const {
+    double Modul2;
+    Modul2 = pow(Wsp[0] - Wek[0], 2) + pow(Wsp[1] - Wek[1], 2);
+    return sqrt(Modul2);
+}
+
 const double& Wektor2D::operator [] (int indeks) const {
     if (indeks < 0 || indeks >= 2)  {
         cerr << "Nieprawidlowy indeks odwolania do elementu wektora" << endl;

@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Macierz2x2::Macierz2x2(float Kat) {
+Macierz2x2::Macierz2x2(double Kat) {
     Kat_obr = Kat*M_PI/180;
     Elem[0] = cos(Kat_obr); Elem[1] = -sin(Kat_obr);
     Elem[2] = sin(Kat_obr); Elem[3] = cos(Kat_obr);
