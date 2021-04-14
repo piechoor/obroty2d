@@ -2,20 +2,18 @@
 #define PROSTOKAT_HH
 
 #include <iostream>
-
+#include "Wektor2D.hh"
 
 /*
  *  Tutaj trzeba opisac klase. Jakie pojecie modeluje ta klasa
  *  i jakie ma glowne cechy.
  */
 class Prostokat {
-  /*
-   *  Tutaj trzeba wstawic definicje odpowiednich pol i metod prywatnych
-   */
+
+    Wektor2D Wierzch[4];
+  
   public:
-  /*
-   *  Tutaj trzeba wstawic definicje odpowiednich metod publicznych
-   */    
+  
 };
 
 

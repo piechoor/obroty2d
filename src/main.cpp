@@ -107,42 +107,58 @@ bool PrzykladZapisuWspolrzednychDoPliku( const char  *sNazwaPliku,
 
 int main()
 {
-  Prostokat             Pr;   // To tylko przykladowe definicje zmiennej
-  PzG::LaczeDoGNUPlota  Lacze;  // Ta zmienna jest potrzebna do wizualizacji
-                                // rysunku prostokata
+//   Prostokat             Pr;   // To tylko przykladowe definicje zmiennej
+//   PzG::LaczeDoGNUPlota  Lacze;  // Ta zmienna jest potrzebna do wizualizacji
+//                                 // rysunku prostokata
 
-   //-------------------------------------------------------
-   //  Wspolrzedne wierzcholkow beda zapisywane w pliku "prostokat.dat"
-   //  Ponizsze metody powoduja, ze dane z pliku beda wizualizowane
-   //  na dwa sposoby:
-   //   1. Rysowane jako linia ciagl o grubosci 2 piksele
-   //
-  Lacze.DodajNazwePliku("prostokat.dat",PzG::RR_Ciagly,2);
-   //
-   //   2. Rysowane jako zbior punktow reprezentowanych przez kwadraty,
-   //      których połowa długości boku wynosi 2.
-   //
-  Lacze.DodajNazwePliku("prostokat.dat",PzG::RR_Punktowy,2);
-   //
-   //  Ustawienie trybu rysowania 2D, tzn. rysowany zbiór punktów
-   //  znajduje się na wspólnej płaszczyźnie. Z tego powodu powoduj
-   //  jako wspolrzedne punktow podajemy tylko x,y.
-   //
-  Lacze.ZmienTrybRys(PzG::TR_2D);
+//    //-------------------------------------------------------
+//    //  Wspolrzedne wierzcholkow beda zapisywane w pliku "prostokat.dat"
+//    //  Ponizsze metody powoduja, ze dane z pliku beda wizualizowane
+//    //  na dwa sposoby:
+//    //   1. Rysowane jako linia ciagl o grubosci 2 piksele
+//    //
+//   Lacze.DodajNazwePliku("prostokat.dat",PzG::RR_Ciagly,2);
+//    //
+//    //   2. Rysowane jako zbior punktow reprezentowanych przez kwadraty,
+//    //      których połowa długości boku wynosi 2.
+//    //
+//   Lacze.DodajNazwePliku("prostokat.dat",PzG::RR_Punktowy,2);
+//    //
+//    //  Ustawienie trybu rysowania 2D, tzn. rysowany zbiór punktów
+//    //  znajduje się na wspólnej płaszczyźnie. Z tego powodu powoduj
+//    //  jako wspolrzedne punktow podajemy tylko x,y.
+//    //
+//   Lacze.ZmienTrybRys(PzG::TR_2D);
 
   
-  PrzykladZapisuWspolrzednychDoStrumienia(cout,0);
-  if (!PrzykladZapisuWspolrzednychDoPliku("prostokat.dat",0)) return 1;
-  Lacze.Rysuj(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
-  cout << "Naciśnij ENTER, aby kontynuowac" << endl;
-  cin.ignore(100000,'\n');
+//   PrzykladZapisuWspolrzednychDoStrumienia(cout,0);
+//   if (!PrzykladZapisuWspolrzednychDoPliku("prostokat.dat",0)) return 1;
+//   Lacze.Rysuj(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
+//   cout << "Naciśnij ENTER, aby kontynuowac" << endl;
+//   cin.ignore(100000,'\n');
 
-   //----------------------------------------------------------
-   // Ponownie wypisuje wspolrzedne i rysuje prostokąt w innym miejscu.
-   //
-  PrzykladZapisuWspolrzednychDoStrumienia(cout,50);
-  if (!PrzykladZapisuWspolrzednychDoPliku("prostokat.dat",50)) return 1;
-  Lacze.Rysuj(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
-  cout << "Naciśnij ENTER, aby kontynuowac" << endl;
-  cin.ignore(100000,'\n');
+//    //----------------------------------------------------------
+//    // Ponownie wypisuje wspolrzedne i rysuje prostokąt w innym miejscu.
+//    //
+//   PrzykladZapisuWspolrzednychDoStrumienia(cout,50);
+//   if (!PrzykladZapisuWspolrzednychDoPliku("prostokat.dat",50)) return 1;
+//   Lacze.Rysuj(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
+//   cout << "Naciśnij ENTER, aby kontynuowac" << endl;
+//   cin.ignore(100000,'\n');
+
+
+       Wektor2D A, B(2,4), C(-5,-6), D, E;
+       cout << "Wektor A: " << A << endl;
+       cout << "Wektor B: " << B << endl;
+       // cout << "Wektor C: " << C << endl;
+       // D = A + B;
+       // cout << "Wektor D = A + B: " << D << endl;
+       // E = B - D;
+       // cout << "Wektor E = B - D: " << E << endl;
+       
+       Macierz2x2 M(11,22,33,44);
+       cout << "Macierz M: " << endl << M << endl;
+
+       A = M * C;
+       cout << "A = M * C: " << A << endl;
 }

@@ -3,20 +3,29 @@
 
 
 #include <iostream>
-
+#include "Wektor2D.hh"
 
 /*
  *  Tutaj trzeba opisac klase. Jakie pojecie modeluje ta klasa
  *  i jakie ma glowne cechy.
  */
 class Macierz2x2 {
-  /*
-   *  Tutaj trzeba wstawic definicje odpowiednich pol i metod prywatnych
-   */
+
+    double Elem[4];
+    double Kat_obr;
+    
   public:
-  /*
-   *  Tutaj trzeba wstawic definicje odpowiednich metod publicznych
-   */    
+  
+    Macierz2x2() { Elem[0] = Elem[1] = Elem[2] = Elem[3] = Kat_obr = 0; }
+
+    Macierz2x2(double a11, double a12, double a21, double a22);
+
+    Macierz2x2(double a11, double a12, double a21, double a22, double Kat);
+
+    const double& operator [] (int indeks) const;
+
+    const Wektor2D operator * (const Wektor2D &Wek) const;  
+
 };
 
 

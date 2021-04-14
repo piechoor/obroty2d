@@ -9,13 +9,22 @@
  *  i jakie ma glowne cechy.
  */
 class Wektor2D {
-  /*
-   *  Tutaj trzeba wstawic definicje odpowiednich pol i metod prywatnych
-   */
+
+    double Wsp[2];
+  
   public:
-  /*
-   *  Tutaj trzeba wstawic definicje odpowiednich metod publicznych
-   */    
+
+    Wektor2D() { Wsp[0] = 0; Wsp[1] = 0; }
+
+    Wektor2D(double Wsp_x, double Wsp_y) { this->Wsp[0] = Wsp_x;  this->Wsp[1] = Wsp_y; }
+
+    const double& operator [] (int indeks) const;
+
+    double& operator [] (int indeks);
+
+    Wektor2D operator + (const Wektor2D Skladnik) const;
+
+    Wektor2D operator - (const Wektor2D Odjemnik) const;
 };
 
 
