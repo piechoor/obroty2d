@@ -108,7 +108,7 @@ bool PrzykladZapisuWspolrzednychDoPliku( const char  *sNazwaPliku,
 
 int main()
 {
-  Wektor2D P1(60,60), P2(210,60), P3(210,160), P4(60,160);
+  Wektor2D P1(60,60), P2(210,60), P3(210,160), P4(60,160), Transl(200,-200);
   Prostokat             Pr(P1, P2, P3, P4);   // To tylko przykladowe definicje zmiennej
   PzG::LaczeDoGNUPlota  Lacze;  // Ta zmienna jest potrzebna do wizualizacji
                                 // rysunku prostokata
@@ -175,16 +175,25 @@ int main()
 
        Pr.Spr_boki();
 
-       Lacze.Rysuj();
+       Lacze.Rysuj(); // Wyswietlenie
        cout << "Naciśnij ENTER, aby kontynuowac" << endl;
        cin.ignore(100000,'\n');
 
-       Pr.Obroc(90, 1);
+       Pr.Obroc(90, 1); // Obrocenie prostokata
        if (!Pr.Zapisz("prostokat.dat")) return 1;
 
        Pr.Spr_boki();
 
-       Lacze.Rysuj();
+       Lacze.Rysuj(); // Wyswietlenie
+       cout << "Naciśnij ENTER, aby kontynuowac" << endl;
+       cin.ignore(100000,'\n');
+
+       Pr.Przesun(Transl); // Przesuniecie prostokata
+       if (!Pr.Zapisz("prostokat.dat")) return 1;
+
+       Pr.Spr_boki();
+
+       Lacze.Rysuj(); // Wyswietlenie
        cout << "Naciśnij ENTER, aby kontynuowac" << endl;
        cin.ignore(100000,'\n');
 

@@ -8,37 +8,41 @@
 #include "Macierz2x2.hh"
 
 /*
- *  Tutaj trzeba opisac klase. Jakie pojecie modeluje ta klasa
- *  i jakie ma glowne cechy.
+ *  Klasa Prostokat modeluje prostokat skladjacy sie z 4 punktow wyrazonych 
+ *  jako wektory 2D. Pozwala wykonywac operacje umozliwiajace obrot, translacje
+ *  oraz sprawdzenie stani prostokata.
  */
 class Prostokat {
 
-    Wektor2D Wierzch[4];
+    Wektor2D Wierzch[4]; // Tablica wierzcholkow prostokata
   
   public:
 
-    Prostokat() { };
+    Prostokat() {}; // Konstruktor domyslny klasy
 
+    // Konstruktor pobierajacy cztery wektory i ustwaiajacy je jako kolejne wierzcholki prostokata.
     Prostokat(Wektor2D W1, Wektor2D W2, Wektor2D W3, Wektor2D W4) {
       Wierzch[0] = W1; Wierzch[1] = W2; Wierzch[2] = W3; Wierzch[3] = W4; };
 
+    // Przeciazenie operatora indeksujacego, zwraca wektor reprezentujacy dany wierzcholek
+    // w zaleznosci od podanego indeksu.
     const Wektor2D& operator [] (int indeks) const;
 
+    // Metoda obraca kazdy wierzcholek prostokata L_obr liczbe obrotow o dany kat Kat.
     void Obroc(long L_obr, double Kat);
 
-    void Spr_boki(); 
+    // Metoda sprawdzajaca dlugosci naprzeciwleglych bokow prostokata i wyswietlajaca o nich komunikat.
+    void Spr_boki();
 
-    bool Zapisz(const char  *sNazwaPliku);
+    // Metoda przesuwajaca kazdy wierzcholek prostokata o zadany wektor
+    void Przesun(const Wektor2D &Wek);
+
+    // Metoda zapisujaca wspolrzedne prostokata do pliku o nazwie podanej jako parametr.
+    bool Zapisz(const char *sNazwaPliku);
 };
 
 
-/*
- * To przeciazenie trzeba opisac. Co ono robi. Jaki format
- * danych akceptuje. Jakie jest znaczenie parametrow itd.
- * Szczegoly dotyczace zalecen realizacji opisow mozna
- * znalezc w pliku:
- *    ~bk/edu/kpo/zalecenia.txt 
- */
+// Funkcja wyswietlajaca wspolrzedne wierzcholkow prostokata.
 std::ostream& operator << ( std::ostream &Strm, const Prostokat &Pr);
 
 
