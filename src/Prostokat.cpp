@@ -37,11 +37,28 @@ void Prostokat::Spr_boki() {
          << "Dlugosc drugiego boku: " << Kr_2 << endl << endl;
 }
 
+bool Prostokat::Zapisz(const char *sNazwaPliku) {
+  ofstream  StrmPlikowy;
+
+  StrmPlikowy.open(sNazwaPliku);
+  if (!StrmPlikowy.is_open())  {
+    cerr << ":(  Operacja otwarcia do zapisu \"" << sNazwaPliku << "\"" << endl
+	 << ":(  nie powiodla sie." << endl;
+    return false;
+  }
+
+  StrmPlikowy << *this;
+
+  StrmPlikowy.close();
+  return !StrmPlikowy.fail();
+}
+
 ostream& operator << (ostream &Strm, const Prostokat &Pr) {
-    Strm << endl << showpoint << setprecision(15) 
-         << Pr[0][0] << "\t" << Pr[0][1] << endl
-         << Pr[1][0] << "\t" << Pr[1][1] << endl
-         << Pr[2][0] << "\t" << Pr[2][1] << endl
-         << Pr[3][0] << "\t" << Pr[3][1] << endl << endl;
+    Strm << endl << fixed << setprecision(15) 
+         << setw(16) << Pr[0][0] << " " << setw(16) << Pr[0][1] << endl
+         << setw(16) << Pr[1][0] << " " << setw(16) << Pr[1][1] << endl
+         << setw(16) << Pr[2][0] << " " << setw(16) << Pr[2][1] << endl
+         << setw(16) << Pr[3][0] << " " << setw(16) << Pr[3][1] << endl 
+         << setw(16) << Pr[0][0] << " " << setw(16) << Pr[0][1] << endl << endl;
     return Strm;
 }

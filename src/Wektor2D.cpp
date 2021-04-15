@@ -4,9 +4,9 @@ using namespace std;
 
 
 double Wektor2D::Modul(const Wektor2D &Wek) const {
-    double Modul2;
-    Modul2 = pow(Wsp[0] - Wek[0], 2) + pow(Wsp[1] - Wek[1], 2);
-    return sqrt(Modul2);
+    Wektor2D Roznica;
+    Roznica = *this - Wek;
+    return sqrt(pow(Roznica[0], 2) + pow(Roznica[1], 2));
 }
 
 const double& Wektor2D::operator [] (int indeks) const {

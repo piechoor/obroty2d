@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+ 
 #include "Wektor2D.hh"
 #include "Macierz2x2.hh"
 #include "Prostokat.hh"
@@ -107,16 +108,17 @@ bool PrzykladZapisuWspolrzednychDoPliku( const char  *sNazwaPliku,
 
 int main()
 {
-//   Prostokat             Pr;   // To tylko przykladowe definicje zmiennej
-//   PzG::LaczeDoGNUPlota  Lacze;  // Ta zmienna jest potrzebna do wizualizacji
-//                                 // rysunku prostokata
+  Wektor2D P1(60,60), P2(210,60), P3(210,160), P4(60,160);
+  Prostokat             Pr(P1, P2, P3, P4);   // To tylko przykladowe definicje zmiennej
+  PzG::LaczeDoGNUPlota  Lacze;  // Ta zmienna jest potrzebna do wizualizacji
+                                // rysunku prostokata
 
-//    //-------------------------------------------------------
-//    //  Wspolrzedne wierzcholkow beda zapisywane w pliku "prostokat.dat"
-//    //  Ponizsze metody powoduja, ze dane z pliku beda wizualizowane
-//    //  na dwa sposoby:
-//    //   1. Rysowane jako linia ciagl o grubosci 2 piksele
-//    //
+   //-------------------------------------------------------
+   //  Wspolrzedne wierzcholkow beda zapisywane w pliku "prostokat.dat"
+   //  Ponizsze metody powoduja, ze dane z pliku beda wizualizowane
+   //  na dwa sposoby:
+   //   1. Rysowane jako linia ciagl o grubosci 2 piksele
+   //
 //   Lacze.DodajNazwePliku("prostokat.dat",PzG::RR_Ciagly,2);
 //    //
 //    //   2. Rysowane jako zbior punktow reprezentowanych przez kwadraty,
@@ -130,9 +132,10 @@ int main()
 //    //
 //   Lacze.ZmienTrybRys(PzG::TR_2D);
 
-  
-//   PrzykladZapisuWspolrzednychDoStrumienia(cout,0);
-//   if (!PrzykladZapisuWspolrzednychDoPliku("prostokat.dat",0)) return 1;
+//   Pr.Spr_boki();
+
+//   //PrzykladZapisuWspolrzednychDoStrumienia(cout,0);
+//   if (!Pr.Zapisz("prostokat.dat")) return 1;
 //   Lacze.Rysuj(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
 //   cout << "Naciśnij ENTER, aby kontynuowac" << endl;
 //   cin.ignore(100000,'\n');
@@ -140,21 +143,50 @@ int main()
 //    //----------------------------------------------------------
 //    // Ponownie wypisuje wspolrzedne i rysuje prostokąt w innym miejscu.
 //    //
-//   PrzykladZapisuWspolrzednychDoStrumienia(cout,50);
-//   if (!PrzykladZapisuWspolrzednychDoPliku("prostokat.dat",50)) return 1;
+   
+//    Pr.Obroc(36000000, 1);
+//    Pr.Spr_boki();
+
+//   //PrzykladZapisuWspolrzednychDoStrumienia(cout,50);
+//   if (!!Pr.Zapisz("prostokat.dat")) return 1;
 //   Lacze.Rysuj(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
 //   cout << "Naciśnij ENTER, aby kontynuowac" << endl;
 //   cin.ignore(100000,'\n');
 
 
-       Wektor2D A(2,3), B(12,3), C(12,8), D(2,8);
+       // Wektor2D A(2,3), B(12,3), C(12,8), D(2,8);
 
-       Prostokat P(A, B, C ,D);
-       cout << P;
+       // Prostokat P(A, B, C ,D);
+       // cout << P;
 
-       P.Spr_boki();
-       P.Obroc(36000000, 1);
-       P.Spr_boki();
+       // P.Spr_boki();
+       // P.Obroc(36000000, 1);
+       // P.Spr_boki();
 
-       cout << P;
+       // cout << P;
+
+       if (!Pr.Zapisz("prostokat.dat")) return 1;
+
+       Lacze.DodajNazwePliku("prostokat.dat",PzG::RR_Ciagly,2);
+
+       Lacze.DodajNazwePliku("prostokat.dat",PzG::RR_Punktowy,2);
+
+       Lacze.ZmienTrybRys(PzG::TR_2D);
+
+       Pr.Spr_boki();
+
+       Lacze.Rysuj();
+       cout << "Naciśnij ENTER, aby kontynuowac" << endl;
+       cin.ignore(100000,'\n');
+
+       Pr.Obroc(90, 1);
+       if (!Pr.Zapisz("prostokat.dat")) return 1;
+
+       Pr.Spr_boki();
+
+       Lacze.Rysuj();
+       cout << "Naciśnij ENTER, aby kontynuowac" << endl;
+       cin.ignore(100000,'\n');
+
+       return 0;
 }
