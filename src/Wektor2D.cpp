@@ -36,15 +36,15 @@ double Wektor2D::Modul(const Wektor2D &Wek) const {
   *  Zwracana wartosc:
   *   Zwrocona zostaje wspolrzedna wektora, zgodnie z podanym indeksem.
 */
-const double& Wektor2D::operator [] (int indeks) const {
-    if (indeks < 0 || indeks >= 2)  {
+const double& Wektor2D::operator [] (unsigned int indeks) const {
+    if (indeks > 2)  {
         cerr << "Nieprawidlowy indeks odwolania do elementu wektora" << endl;
         exit(0);
     }
-    return this->Wsp[indeks];
+    return Wsp[indeks];
 }
-double& Wektor2D::operator [] (int indeks) {
-    if (indeks < 0 || indeks >= 2)  {
+double& Wektor2D::operator [] (unsigned int indeks) {
+    if (indeks > 2)  {
         cerr << "Nieprawidlowy indeks odwolania do elementu wektora" << endl;
         exit(0);
     }

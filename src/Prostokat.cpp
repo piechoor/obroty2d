@@ -17,9 +17,9 @@ using namespace std;
   *  Zwracana wartosc:
   *   Zwrocony zostaje wektor reprezentujacy punkt bedacy wierzcholkiem prostokata.
 */
-const Wektor2D& Prostokat::operator [] (int indeks) const {
-    if (indeks < 0 || indeks >= 4)  {
-        cerr << "Nieprawidlowy indeks odwolania do elementu macierzy" << endl;
+const Wektor2D& Prostokat::operator [] (unsigned int indeks) const {
+    if (indeks > 4)  {
+        cerr << "Nieprawidlowy indeks odwolania do elementu prostokata." << endl;
         exit(0);
     }
     return Wierzch[indeks];
@@ -41,13 +41,13 @@ const Wektor2D& Prostokat::operator [] (int indeks) const {
   *  Warunki koncowe:
   *   Brak.
 */
-void Prostokat::Obroc(long L_obr, double Kat) {
-    Macierz2x2 Mac_obr(Kat);
+void Prostokat::Obroc(unsigned long L_obr, double Kat) {
+    Macierz2x2 Mac_obr;
+    Mac_obr.Inicjuj_obr(Kat);
 
-    if (L_obr < 0) cerr << "Nie udalo sie obrocic prostokata - podano nieprawidlowa liczbe obrotow" << endl;
-    for (int i = 0; i < L_obr; i++) {
+    for (unsigned int i = 0; i < L_obr; i++) {
         for (int j = 0; j < 4; j++)
-            Wierzch[j] = Mac_obr *  Wierzch[j];
+            Wierzch[j] = Mac_obr * Wierzch[j];
     }
 }
 

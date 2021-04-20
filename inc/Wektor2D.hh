@@ -24,8 +24,8 @@ class Wektor2D {
     double Modul(const Wektor2D &Wek) const;
 
     // Przeciazenia operatora indeksujacego dla wektora, zwraca wskazane pole wektora
-    const double& operator [] (int indeks) const;
-    double& operator [] (int indeks);
+    const double& operator [] (unsigned int indeks) const;
+    double& operator [] (unsigned int indeks);
 
     // Przeciazenie operatora dodawania dla dwoch wektorow
     Wektor2D operator + (const Wektor2D Skladnik) const;

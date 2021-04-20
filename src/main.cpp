@@ -112,7 +112,7 @@ int main()
   Prostokat             Pr(P1, P2, P3, P4);   // To tylko przykladowe definicje zmiennej
   PzG::LaczeDoGNUPlota  Lacze;  // Ta zmienna jest potrzebna do wizualizacji
                                 // rysunku prostokata
-
+// {
    //-------------------------------------------------------
    //  Wspolrzedne wierzcholkow beda zapisywane w pliku "prostokat.dat"
    //  Ponizsze metody powoduja, ze dane z pliku beda wizualizowane
@@ -164,6 +164,7 @@ int main()
        // P.Spr_boki();
 
        // cout << P;
+
 
        if (!Pr.Zapisz("prostokat.dat")) return 1;
 

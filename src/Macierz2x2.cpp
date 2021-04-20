@@ -2,42 +2,19 @@
 
 using namespace std;
 
-// Konstruktor ustawiajacy pola klasy na podane wartosci pobrane 
-// jako parametry oraz kat obrotu na zero.
-Macierz2x2::Macierz2x2(double a11, double a12, double a21, double a22) {
-    Elem[0] = a11; Elem[1] = a12;
-    Elem[2] = a21; Elem[3] = a22;
-    Kat_obr = 0;
-}
 
-// Konstruktor tworzacy macierz obrotu w okol srodka ukladu wspolrzednych.
-// pobiera kat wyrazony w stopniach.
-Macierz2x2::Macierz2x2(double Kat) {
+void Macierz2x2::Inicjuj_obr(double Kat) {
     Kat_obr = Kat*M_PI/180; // Zamiana stopni na radiany
-    Elem[0] = cos(Kat_obr); Elem[1] = -sin(Kat_obr);
-    Elem[2] = sin(Kat_obr); Elem[3] = cos(Kat_obr);
+    Elem[0][0] = cos(Kat_obr); Elem[0][1] = -sin(Kat_obr);
+    Elem[1][0] = sin(Kat_obr); Elem[1][1] = cos(Kat_obr);
 }
 
-/*
-  *  Przeciazenie operatora indeksujacego dla macierzy, zwraca wskazane pole macierzy.
-  *  Jezeli indeks bedzie nieprawidlowy, metoda zakonczy dzialanie programu.
-  *
-  *  Parametry wywolania:
-  *  indeks - indeks zwracanego elementu macierzy. 
-  * 
-  *  Warunki wstepne:
-  *   indeks musi byc zawierac sie w przedziale <0,3>, gdyz rozwazamy macierz 2x2
-  *  Warunki koncowe:
-  *   Brak.
-  *  Zwracana wartosc:
-  *   Zwrocona zostaje element macierzy, zgodnie z podanym indeksem.
-*/
-const double& Macierz2x2::operator [] (int indeks) const {
-    if (indeks < 0 || indeks >= 4)  {
-        cerr << "Nieprawidlowy indeks odwolania do elementu macierzy" << endl;
-        exit(0);
+double Macierz2x2::operator () (unsigned int wiersz, unsigned int kolumna) {
+    if (wiersz > 2 || kolumna >2) {
+      cerr << "Nieprawidlowy indeks macierzy." << endl;
+      exit(0);
     }
-    return Elem[indeks];
+    return Elem[wiersz][kolumna];
 }
 
 /*
@@ -57,8 +34,8 @@ const double& Macierz2x2::operator [] (int indeks) const {
 */
 const Wektor2D Macierz2x2::operator * (const Wektor2D &Wek) const {
     Wektor2D Wynik;
-    Wynik[0] = this->Elem[0] * Wek[0] + this->Elem[1] * Wek[1];
-    Wynik[1] = this->Elem[2] * Wek[0] + this->Elem[3] * Wek[1];
+    Wynik[0] = Elem[0][0] * Wek[0] + Elem[0][1] * Wek[1];
+    Wynik[1] = Elem[1][0] * Wek[0] + Elem[1][1] * Wek[1];
     return Wynik;
 }
 
@@ -72,8 +49,8 @@ const Wektor2D Macierz2x2::operator * (const Wektor2D &Wek) const {
   *  Warunki wstepne:
   *   Prawidlowy strumien i macierz Mac.
 */
-ostream& operator << (ostream &Strm, const Macierz2x2 &Mac) {
-    cout << "| " << Mac[0] << "\t" << Mac[1] << " |" << endl;
-    cout << "| " << Mac[2] << "\t" << Mac[3] << " |" << endl;
+ostream& operator << (ostream &Strm, Macierz2x2 Mac) {
+    cout << "| " << Mac(0,0) << "\t" << Mac(0,1) << " |" << endl;
+    cout << "| " << Mac(1,0) << "\t" << Mac(1,1) << " |" << endl;
     return Strm;
 }

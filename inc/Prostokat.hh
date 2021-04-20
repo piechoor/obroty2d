@@ -26,10 +26,10 @@ class Prostokat {
 
     // Przeciazenie operatora indeksujacego, zwraca wektor reprezentujacy dany wierzcholek
     // w zaleznosci od podanego indeksu.
-    const Wektor2D& operator [] (int indeks) const;
+    const Wektor2D& operator [] (unsigned int indeks) const;
 
     // Metoda obraca kazdy wierzcholek prostokata L_obr liczbe obrotow o dany kat Kat.
-    void Obroc(long L_obr, double Kat);
+    void Obroc(unsigned long L_obr, double Kat);
 
     // Metoda sprawdzajaca dlugosci naprzeciwleglych bokow prostokata i wyswietlajaca o nich komunikat.
     void Spr_boki();
