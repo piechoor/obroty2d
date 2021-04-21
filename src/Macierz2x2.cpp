@@ -4,13 +4,13 @@ using namespace std;
 
 
 void Macierz2x2::Inicjuj_obr(double Kat) {
-    Kat_obr = Kat*M_PI/180; // Zamiana stopni na radiany
+    Kat_obr = Kat*M_PI/180; // Zamiana stopni na radiany 
     Elem[0][0] = cos(Kat_obr); Elem[0][1] = -sin(Kat_obr);
     Elem[1][0] = sin(Kat_obr); Elem[1][1] = cos(Kat_obr);
 }
 
-double Macierz2x2::operator () (unsigned int wiersz, unsigned int kolumna) {
-    if (wiersz > 2 || kolumna >2) {
+double Macierz2x2::operator () (unsigned int wiersz, unsigned int kolumna) const {
+    if (wiersz > 1 || kolumna > 1) {
       cerr << "Nieprawidlowy indeks macierzy." << endl;
       exit(0);
     }

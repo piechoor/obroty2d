@@ -32,6 +32,7 @@ class Wektor2D {
 
     // Przeciazenie operatora odejmowania dla dwoch wektorow
     Wektor2D operator - (const Wektor2D Odjemnik) const;
+
 };
 
 

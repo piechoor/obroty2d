@@ -37,14 +37,14 @@ double Wektor2D::Modul(const Wektor2D &Wek) const {
   *   Zwrocona zostaje wspolrzedna wektora, zgodnie z podanym indeksem.
 */
 const double& Wektor2D::operator [] (unsigned int indeks) const {
-    if (indeks > 2)  {
+    if (indeks > 1)  {
         cerr << "Nieprawidlowy indeks odwolania do elementu wektora" << endl;
         exit(0);
     }
     return Wsp[indeks];
 }
 double& Wektor2D::operator [] (unsigned int indeks) {
-    if (indeks > 2)  {
+    if (indeks > 1)  {
         cerr << "Nieprawidlowy indeks odwolania do elementu wektora" << endl;
         exit(0);
     }

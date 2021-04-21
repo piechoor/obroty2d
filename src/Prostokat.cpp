@@ -55,22 +55,22 @@ void Prostokat::Obroc(unsigned long L_obr, double Kat) {
   *  Metoda oblicza dlugosci bokow prostokata, nastepnie porownuje przeciwlegle
   *  wyswietla ich dlugosci oraz w zaleznosci czy sa rowne wsywietla stosowny komunikat.
 */
-void Prostokat::Spr_boki() {
+void Prostokat::Spr_boki() const {
     double Dl_1, Dl_2, Kr_1, Kr_2;
     
     Dl_1 = Wierzch[0].Modul(Wierzch[1]); Dl_2 = Wierzch[2].Modul(Wierzch[3]);
     Kr_1 = Wierzch[0].Modul(Wierzch[3]); Kr_2 = Wierzch[1].Modul(Wierzch[2]);
 
-    if (Dl_1 == Dl_2) cout << "\tDluzsze przeciwlegle boki sa sobie rowne." << endl;
+    if (Dl_1 == Dl_2) cout << endl << "\tDluzsze przeciwlegle boki sa sobie rowne." << endl;
     else cout << "\tDluzsze przeciwlegle boki nie sa rowne!!!" << endl;
-    cout << right << setprecision(20)
+    cout << right << setprecision(20) << fixed
          << "Dlugosc pierwszego boku: " << Dl_1 << endl
-         << "Dlugosc drugiego boku: " << Dl_2 << endl << endl;
+         << "  Dlugosc drugiego boku: " << Dl_2 << endl << endl;
 
-    if (Kr_1 == Kr_2) cout << "\tKrotsze przeciwlegle boki sa sobie rowne." << endl;
+    if (Kr_1 == Kr_2) cout << endl << "\tKrotsze przeciwlegle boki sa sobie rowne." << endl;
     else cout << "\tKrotsze przeciwlegle boki nie sa rowne!!!" << endl;
     cout << "Dlugosc pierwszego boku: " << Kr_1 << endl
-         << "Dlugosc drugiego boku: " << Kr_2 << endl << endl;
+         << "  Dlugosc drugiego boku: " << Kr_2 << endl << endl;
 }
 
 /*
@@ -100,7 +100,7 @@ void Prostokat::Przesun(const Wektor2D &Wek) {
   *  Funkcja zwraca true, gdy operacja zapisu sie powiodla i false, gdy nie.
 */
 
-bool Prostokat::Zapisz(const char *sNazwaPliku) {
+bool Prostokat::Zapisz(const char *sNazwaPliku) const {
   ofstream  StrmPlikowy;
 
   StrmPlikowy.open(sNazwaPliku);

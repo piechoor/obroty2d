@@ -32,13 +32,13 @@ class Prostokat {
     void Obroc(unsigned long L_obr, double Kat);
 
     // Metoda sprawdzajaca dlugosci naprzeciwleglych bokow prostokata i wyswietlajaca o nich komunikat.
-    void Spr_boki();
+    void Spr_boki() const;
 
     // Metoda przesuwajaca kazdy wierzcholek prostokata o zadany wektor
     void Przesun(const Wektor2D &Wek);
 
     // Metoda zapisujaca wspolrzedne prostokata do pliku o nazwie podanej jako parametr.
-    bool Zapisz(const char *sNazwaPliku);
+    bool Zapisz(const char *sNazwaPliku) const;
 };
 
 

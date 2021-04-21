@@ -23,7 +23,7 @@ class Macierz2x2 {
 
     void Inicjuj_obr(double Kat);
 
-    double operator () (unsigned int wiersz, unsigned int kolumna);
+    double operator () (unsigned int wiersz, unsigned int kolumna) const;
 
     // Przeciazenie operatora mnozenia macierzy przez wektor, jako wynik zwraca Wektor2D.
     const Wektor2D operator * (const Wektor2D &Wek) const;  
