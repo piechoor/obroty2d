@@ -7,9 +7,9 @@ __start__: obroty_2D
 	./obroty_2D
 
 obroty_2D: obj obj/main.o obj/Prostokat.o obj/Macierz2x2.o obj/Wektor2D.o\
-           obj/lacze_do_gnuplota.o
+           obj/lacze_do_gnuplota.o obj/Menu.o
 	g++ -Wall -pedantic -std=c++0x -o obroty_2D obj/main.o obj/Wektor2D.o\
-                        obj/Macierz2x2.o obj/Prostokat.o obj/lacze_do_gnuplota.o
+                        obj/Macierz2x2.o obj/Prostokat.o obj/lacze_do_gnuplota.o obj/Menu.o
 
 obj:
 	mkdir obj
@@ -28,6 +28,9 @@ obj/Macierz2x2.o: src/Macierz2x2.cpp inc/Macierz2x2.hh
 
 obj/Wektor2D.o: src/Wektor2D.cpp inc/Wektor2D.hh
 	g++ -c ${CXXFLAGS} -o obj/Wektor2D.o src/Wektor2D.cpp
+
+obj/Menu.o: src/Menu.cpp inc/Menu.hh
+	g++ -c ${CXXFLAGS} -o obj/Menu.o src/Menu.cpp
 
 clean:
 	rm -f obj/*.o obroty_2D
