@@ -2,13 +2,38 @@
 
 using namespace std;
 
-
+/*
+  *  Metoda inicjujaca macierz obrotu zgonie z katem podanym jako parametr.
+  *
+  *  Parametry wywolania:
+  *  Kat - kat obrotu macierzy. 
+  * 
+  *  Warunki wstepne:
+  *   Kat podany w stopniach.
+  *  Zwracana wartosc:
+  *   Brak.
+*/
 void Macierz2x2::Inicjuj_obr(double Kat) {
     Kat_obr = Kat*M_PI/180; // Zamiana stopni na radiany 
     Elem[0][0] = cos(Kat_obr); Elem[0][1] = -sin(Kat_obr);
     Elem[1][0] = sin(Kat_obr); Elem[1][1] = cos(Kat_obr);
 }
 
+/*
+  *  Przeciazenie operatora indeksujacego dla macierzy, zwraca wskazane pole macierzy.
+  *  Jezeli indeks bedzie nieprawidlowy, metoda zakonczy dzialanie programu.
+  *
+  *  Parametry wywolania:
+  *  wiersz - wiersz zwracanego elementu macierzy
+  *  kulmna - kolumna zwracanego elementu macierzy
+  * 
+  *  Warunki wstepne:
+  *   wiersz i kolumna zawierac sie musza w przedziale <0,1>, gdyz rozwazamy macierz 2x2
+  *  Warunki koncowe:
+  *   Brak.
+  *  Zwracana wartosc:
+  *   Zwrocona zostaje element macierzy, zgodnie z podanymi parametrami.
+*/
 double Macierz2x2::operator () (unsigned int wiersz, unsigned int kolumna) const {
     if (wiersz > 1 || kolumna > 1) {
       cerr << "Nieprawidlowy indeks macierzy." << endl;

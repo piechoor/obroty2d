@@ -13,7 +13,7 @@
  */
 class Macierz2x2 {
 
-    double Elem[2][2]; // 
+    double Elem[2][2]; // Tablica na elementy macierzy
     double Kat_obr; // Kat obrotu dla macierzy obrotu
     
   public:
@@ -21,8 +21,10 @@ class Macierz2x2 {
     // Konstruktor domyslny zerujacy wszystkie pola klasy.
     Macierz2x2() { Elem[0][0] = Elem[0][1] = Elem[1][0] = Elem[1][1] = Kat_obr = 0; }
 
+    // Metoda inicjujaca macierz obrotu zgonie z katem podanym jako parametr.
     void Inicjuj_obr(double Kat);
 
+    // Przeciazenie operatora indeksujacego dla macierzy, zwraca wskazane pole macierzy.
     double operator () (unsigned int wiersz, unsigned int kolumna) const;
 
     // Przeciazenie operatora mnozenia macierzy przez wektor, jako wynik zwraca Wektor2D.

@@ -18,7 +18,7 @@ using namespace std;
   *   Zwrocony zostaje wektor reprezentujacy punkt bedacy wierzcholkiem prostokata.
 */
 const Wektor2D& Prostokat::operator [] (unsigned int indeks) const {
-    if (indeks > 4)  {
+    if (indeks > 3)  {
         cerr << "Nieprawidlowy indeks odwolania do elementu prostokata." << endl;
         exit(0);
     }
@@ -45,8 +45,8 @@ void Prostokat::Obroc(unsigned long L_obr, double Kat) {
     Macierz2x2 Mac_obr;
     Mac_obr.Inicjuj_obr(Kat);
 
-    for (unsigned int i = 0; i < L_obr; i++) {
-        for (int j = 0; j < 4; j++)
+    for (unsigned int i = 0; i < L_obr; ++i) {
+        for (int j = 0; j < 4; ++j)
             Wierzch[j] = Mac_obr * Wierzch[j];
     }
 }
@@ -83,7 +83,7 @@ void Prostokat::Spr_boki() const {
   *   Zdefiniowana klasa prostokat i prawidlowy wektor Wek.
 */
 void Prostokat::Przesun(const Wektor2D &Wek) {
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 4; ++i)
         Wierzch[i] = Wierzch[i] + Wek;
 }
 
